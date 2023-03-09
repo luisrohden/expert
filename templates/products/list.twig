@@ -1,0 +1,30 @@
+<h2>Products List</h2>
+<nav>
+	<a href="/StoreSystem/addProduct">Add Product</a>
+</nav>
+<table class="table">
+<thead>
+	<tr>
+		<td>Id</td>
+		<td>Name</td>
+		<td>Price</td>
+		<td>Type Name</td>
+		<td>Type Tax</td>
+	</tr>
+</thead>
+<tbody>
+	{% for product in products %}
+		<tr>
+			<td>{{product.id}}</a></td>
+			<td><a href="/StoreSystem/edit/productId/{{product.id}}" title="edit">{{product.name}}</a></td>
+			<td>{{product.price}}</td>
+			<td>{{product.type_name}}</td>
+			<td>{{product.type_tax|number_format(2)}}</td>
+		</tr>
+
+	{% endfor%}
+</tbody>
+</table>
+<nav>
+	<a href="/StoreSystem/addProduct">Add Product</a>
+</nav>

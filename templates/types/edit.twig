@@ -1,0 +1,17 @@
+<h2>Edit type</h2>
+<form method="post" action="/Types/savingType" class="form">
+	<label>
+		<span class="name">ID</span>
+		<input type="number" name="id" value="{{id}}" required readonly="true" />
+	</label>
+
+	<label>
+		<span class="name required">Name</span>
+		<input type="text" name="name" required value="{{name}}" />
+	</label>
+	<label>
+		<span class="name required">Tax (%)</span>
+		<input type="number" name="tax" step="0.01" value="{{tax}}"/>
+	</label>
+	<button class="btn">Save</button>
+</form>

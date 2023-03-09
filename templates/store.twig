@@ -1,0 +1,24 @@
+<h2>Store</h2>
+<div class="flex">
+	{% for product in products %}
+		<div>
+			<div class="title">
+				<a href="/view/{{product.id}}" title="View {{product.name}}">
+					<img src="{{product.photo}}" alt ="{{product.name}}"/>
+				</a>
+			</div>
+			<div class="title">
+				<a href="/view/{{product.id}}" title="View {{product.name}}">
+					{{product.name}}
+				</a>
+			</div>
+			<div class="type">
+				type: {{product.type_name}}
+			</div>
+			<div class="price">
+				R$ {{product.price|number_format(2)}}
+			</div>
+		</div>
+	{% endfor%}
+</div>
+

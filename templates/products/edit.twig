@@ -1,0 +1,41 @@
+
+<form method="post" action="/StoreSystem/savingProduct" enctype="multipart/form-data">
+	<label>
+		<span class="name">ID</span>
+		<input type="number" name="id" value="{{id}}" required readonly="true" />
+	</label>
+	<label>
+		<img src="{{photo}}" alt="photo"/>
+		<hr />
+		<span class="name required">Photo</span>
+		<input type="file" name="photo"/>
+	</label>
+
+	<label>
+		<span class="name required">Name</span>
+		<input type="text" name="name" required value="{{name}}" />
+	</label>
+	<label>
+		<span class="name required">Price $</span>
+		<input type="number" name="price" step="0.01" value="{{price}}"/>
+	</label>
+	<label>
+		<span class="name required">Type</span>
+		<select required name="type">
+			<option value="">Select type</option>
+			{% for item in typesList %}
+				<option 
+					value="{{item.id}}" 
+					{% if type == item.id %}
+					selected="true"
+					{% endif %}
+				>{{item.name}}</option>
+			{% endfor %}
+		</select>
+	</label>
+	<label>
+		<span class="name required">Description </span>
+		<textarea name="description">{{description}}</textarea>
+	</label>
+	<button class="btn">Save</button>
+</form>

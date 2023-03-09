@@ -1,0 +1,25 @@
+<h2>List Types</h2>
+
+<nav>
+	<ul>
+	 <li><a href="/Types/AddType" >Add Type</a></li>
+	</ul>
+</nav>
+<table class="table">
+	<thead>
+		<tr>
+			<td>Id</td>
+			<td>Name</td>
+			<td>Tax</td>
+		</tr>
+	</thead>
+    {% for item in typeList %}
+    	<tr>
+			<td>{{item.id}}</td>
+			<td><a href="/Types/edit/typeId/{{item.id}}">{{item.name}}</a></td>
+			<td>{{item.tax|number_format(2) }}%</td>
+		</tr>
+        
+    {% endfor %}
+</table>
+

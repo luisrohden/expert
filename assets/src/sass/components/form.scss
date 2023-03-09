@@ -1,0 +1,11 @@
+.form{
+    label{
+        display: flex;
+        flex-direction: column;
+    }
+    input{
+        width:100%;
+        border:1px solid red;
+        border-radius: 50px;
+    }
+}

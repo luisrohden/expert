@@ -1,0 +1,21 @@
+{
+    "name": "luisrohden/expertshop",
+    "description": "Crud PHP",
+    "autoload": {
+        "psr-4": {
+            "Expertshop\\": "src/",
+            "Expertshop\\Controller\\": "src/Controller",
+            "Expertshop\\Model\\": "src/Model"
+        }
+    },
+    "authors": [
+        {
+            "name": "Luis Rohden",
+            "email": "luisrohden@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "twig/twig": "^3.4"
+    }
+}
