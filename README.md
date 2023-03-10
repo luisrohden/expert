@@ -17,7 +17,7 @@ After downloading the repository. The first step is to get the composer dependen
 
 For that run:
 
-```composer install``
+> composer install
 
 #### Step 2
 
@@ -25,9 +25,16 @@ Import SQL file # DB File to your DB
 
 #### step 3
 
-Configure the ./inc/config.php file with your database credentials
+Configure the ./inc/config.php file 
+
+* your database credentials
+* Your database type
+
+### Ready
 
 Your application should now be ready to run.
+
+
 
 
 
