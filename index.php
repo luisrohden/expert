@@ -1,4 +1,5 @@
 <?php
+session_start();
 include ('inc/config.php');
 include('vendor/autoload.php');
 
@@ -35,8 +36,10 @@ if(class_exists($controller)){
 	//echo 'controller <b>not</b>gexist<hr />';
 	$controller = '\Expertshop\Controller\\' . $defaultControllerName .  'Controller';	
 	if(class_exists($controller)){
+		$Domain->set_deep(-1);
+		$request_arguments = $Domain->getArguments();
+		//
 		$obj = new $controller($libraries);
-		$request_arguments = array_merge([$methodName],$request_arguments);
 		$methodName = $controllerName;
 		if(method_exists($obj,$methodName)){
 
