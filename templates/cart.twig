@@ -1,0 +1,39 @@
+<div class="container">
+	<form action="/SaveCart" method="post">
+	<table class="table">
+		<thead>
+			<tr>
+					<td>Photo</td>
+					<td>Name</td>
+					<td>Price</td>
+					<td>Type</td>
+					<td>Qtd</td>
+					<td>Subtotal</td>
+				</tr>
+		</thead>
+		<tbody>
+			{%for prod in products %}
+				<input type="hidden" name="prod[{{prod.id}}]" value="{{prod.qtd}}">
+				<tr>
+					<td><img src="{{prod.photo}}" class="small" /></td>
+					<td>{{prod.name}}</td>
+					<td class="price">R$ <strong>{{prod.price}}</strong></td>
+					<td>{{prod.type_name}}</td>
+					<td>
+						{{prod.qtd}}
+					
+					</td>
+					<td class="subtotal"> R$ <strong>{{prod.subtotal|number_format(2)}}</strong></td>
+				</tr>
+			{%endfor %}
+		</tbody>
+		<tfoot>
+			<tr>
+				<td colspan="6">{{total}}</td>
+			</tr>
+		</tfoot>
+	</table>
+	<button class="btn">Save</button>
+	</form>
+
+</div>

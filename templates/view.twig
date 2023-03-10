@@ -1,0 +1,40 @@
+
+<div class="view">
+	<div class="container">
+		<div class="flex">
+			<div class="photo">
+				<img src="{{photo}}" alt="{{alt}}"  />
+			</div>
+			<div class="info">
+				<h2>{{name}}</h2>
+				<p>Type: <strong>{{type_name}}</strong></p>
+				<p><strong>Description</strong></p>
+				<div class="description">
+					{{description|nl2br}}
+				</div>
+				<div id="price" data-value="{{price}}">
+					<strong>Price</strong>
+					R$ {{price|number_format(2)}}
+				</div>
+				<div id="tax" data-price="{{type_tax}}">
+					<strong>Tax</strong>
+					R$ {{type_tax|number_format(2)}}
+				</div>
+				
+				<form class="addToCart" method="post" action="/AddToCart">
+					<input type="hidden" name="id" value="{{id}}">
+					<span id="removeItem" class="btn">-</span>
+					<input type="number" class="qtd" name="qtd" value="1" />
+					<span id="addItem" class="btn">+</span>
+					<span class="total" data-itemprice="{{((type_tax/100 * price) + price)}}"> Total : 
+						R$ <strong>{{((type_tax/100 * price) + price)|number_format(2)}}</strong>
+					</span>
+					<div class="">
+						<button class="btn">Add To Cart</button>
+					</div>
+					
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

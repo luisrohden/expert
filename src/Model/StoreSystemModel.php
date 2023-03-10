@@ -15,6 +15,33 @@ class StoreSystemModel extends baseModel{
 		';
 		return $this->query($sql);
 	}
+	public function getProductsByIds($ids){
+		$in_list = '';
+		foreach($ids as $id){
+			$in_list.='"'.$id.'", ';
+		}
+		$in_list =substr($in_list,0,-2);
+		$sql = '
+		SELECT
+			P.id, P.name, P.price, P.type, P.photo, T.name as type_name, T.tax As type_tax
+		FROM
+			products P, product_types T
+		WHERE
+			P.type = T.id &&
+			P.id IN ('.$in_list.')
+
+		';
+		$products  = $this->query($sql);
+		if(count($products)){
+			$return = [];
+			foreach($products as $product){
+				$return[$product['id']] = $product;
+			}
+
+		}
+		return 	$return;
+
+	}
 	public function getProduct(array $args){
 		$vars = [
 			'productId' => $args['productId'],
@@ -110,16 +137,43 @@ class StoreSystemModel extends baseModel{
 				WHERE 
 					id = :id;
 			';
-			echo '<pre>';
-			print_r($updatePhoto);
-			echo '</pre>';
-			echo '<hr />';
-			print_r($sql);
 			$this->query($sql,$updatePhoto);
 		}
-
-
-
 		return $this->lastInsertId();
-	}	
+	}
+	public function SaveCart(array $cart){
+		$cart_serialized = serialize($cart);
+		$sql = '
+			INSERT INTO
+				cart
+					(serialized)
+			VALUES
+				(:serialized)
+		';
+		$vars = [
+			'serialized' => $cart_serialized
+		];
+		$this->query($sql,$vars);
+		$savedCart = $this->lastInsertId();
+		echo '<pre>';
+		print_r($cart);
+		echo '</pre>';
+
+	}
+	public function getProdutcsToSave(array $products){
+		return array_keys($products);
+	}
+	public function productsFormat(array $cart, array $products,object $cartModel){
+		$total = 0;
+		foreach($cart as $productsId => $qtd){
+			if(!isset($products[$productsId])) continue;
+			$product = $products[$productsId];
+			$products[$productsId]['qtd'] = $qtd;
+			$subtotal = $cartModel->calcFullPrice($product['price'],$product['type_tax'],$qtd);
+			$products[$productsId]['subtotal'] = $subtotal;
+			$total += $subtotal;
+		}
+		return $products;
+
+	}
 }

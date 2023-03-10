@@ -28,7 +28,7 @@ class Domain{
 			return $args;	
 		}else{
 
-			for($i=$index;$i<$total;$i++){
+			for($i=$index;$i<$total+1;$i++){
 				$name =  @$this->request[$i] ?: '';
 				$value = @$this->request[$i+1] ?: '';
 				$args[$name]=$value;
