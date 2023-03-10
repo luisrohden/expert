@@ -191,6 +191,28 @@ nav ul ul{
 	color:#333; 
 	font-weight: bolder;
 }
+.form label{
+	display: block;
+	margin: var(--space) 0;
+}
+.form label span{
+	display: block;
+}
+.form label input,.form label textarea, .form label select{
+	width:100%;
+	padding: var(--litle-space);
+	border-radius: var(--litle-space);
+}
+.form label select{
+	width: auto;
+}
+.form .thumb{
+	width: 160px;
+	height: auto];
+}
+.session{
+	margin: var(--space);
+}
 @media (max-width: 1024px){
 	.product{
 		width: 100%;
