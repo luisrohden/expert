@@ -8,8 +8,4 @@ const mysqlAcess = [
 	'db_host' => 'localhost',
 	'db_user' => 'root',
 	'db_password' => '',
-	/*
-	'db_user' => 'expertshop',
-	'db_password' => 'KtqsFiTBBDcYtnoz',
-	*/
 ];
