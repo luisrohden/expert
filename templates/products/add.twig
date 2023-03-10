@@ -1,31 +1,35 @@
-<h2>Cadastro de Produtos</h2>
+<section class="session">	
+	<div class="container">
+		<h2>Cadastro de Produtos</h2>
 
-<form method="post" action="/StoreSystem/addingProduct" enctype="multipart/form-data">
-	<label>
-		<span class="name required">Photo</span>
-		<input type="file" name="photo"/>
-	</label>
-	<label>
-		<span class="name required">Name</span>
-		<input type="text" name="name" required />
-	</label>
-	<label>
-		<span class="name required">Price $</span>
-		<input type="number" name="price" step="0.01"/>
-	</label>
-	<label>
-		<span class="name required">Type</span>
-		<select required name="type">
-			<option value="">Select type</option>
-			{% for item in typesList %}
-				<option value="{{item.id}}">{{item.name}}</option>
-			{% endfor %}
-		</select>
-	</label>
-	<label>
-		<span class="name required">Description </span>
-		<textarea name="description"></textarea>
-	</label>
-	
-	<button>Register</button>
-</form>
+		<form method="post" action="/StoreSystem/addingProduct" enctype="multipart/form-data" class="form">
+			<label>
+				<span class="name required">Photo</span>
+				<input type="file" name="photo"/>
+			</label>
+			<label>
+				<span class="name required">Name</span>
+				<input type="text" name="name" required />
+			</label>
+			<label>
+				<span class="name required">Price $</span>
+				<input type="number" name="price" step="0.01"/>
+			</label>
+			<label>
+				<span class="name required">Type</span>
+				<select required name="type">
+					<option value="">Select type</option>
+					{% for item in typesList %}
+						<option value="{{item.id}}">{{item.name}}</option>
+					{% endfor %}
+				</select>
+			</label>
+			<label>
+				<span class="name required">Description </span>
+				<textarea name="description"></textarea>
+			</label>
+			
+			<button class="btn">Register</button>
+		</form>
+	</div>
+</section>
