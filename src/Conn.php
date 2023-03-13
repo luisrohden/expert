@@ -16,9 +16,8 @@ class Conn{
 		}
 		extract($this->MysqlAccess);
 		try{
-			$db_type = db_type;
-			
-			$this->conn = new \PDO($db_type':host=' . $db_host . ';dbname=' . $db_name,$db_user,$db_password);
+						
+			$this->conn = new \PDO($db_type.':host=' . $db_host . ';dbname=' . $db_name,$db_user,$db_password);
 			$this->status = true;
 			return true;
 		}
