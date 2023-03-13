@@ -9,6 +9,7 @@ const mysqlAcess = [
 	'db_host' => 'localhost',
 	'db_user' => 'root',
 	'db_password' => '',
+	'db_type' => 'mysql' # pgsql (postgree) / mysql (mysql,mariaDB)
 ];
 */
 
@@ -19,5 +20,8 @@ const mysqlAcess = [
 	'db_host' => 'mysql834.umbler.com',
 	'db_user' => 'luisrohden',
 	'db_password' => '8X_U-9l-Rxqh?',
+  'db_type' => 'mysql' # pgsql (postgree) / mysql (mysql,mariaDB)
+  
 ];
+
 
